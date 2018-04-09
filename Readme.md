@@ -47,7 +47,6 @@ This module lets you connect to web services using SOAP.  It also provides a ser
   - [ClientSSLSecurity](#clientsslsecurity)
   - [ClientSSLSecurityPFX](#clientsslsecuritypfx)
   - [WSSecurity](#wssecurity)
-  - [WSSecurityCert](#wssecuritycert)
 - [Handling XML Attributes, Value and XML (wsdlOptions).](#handling-xml-attributes-value-and-xml-wsdloptions)
   - [Overriding the `value` key](#overriding-the-value-key)
   - [Overriding the `xml` key](#overriding-the-xml-key)
@@ -660,7 +659,7 @@ as default request options to the constructor:
 * `strictSSL: false`
 * `secureOptions: constants.SSL_OP_NO_TLSv1_2` (this is likely needed for node >= 10.0)
 
-If you want to reuse tls sessions, you can use the option `forever: true`. 
+If you want to reuse tls sessions, you can use the option `forever: true`.
 
 ``` javascript
 client.setSecurity(new soap.ClientSSLSecurity(
@@ -686,7 +685,7 @@ as default request options to the constructor:
 * `strictSSL: false`
 * `secureOptions: constants.SSL_OP_NO_TLSv1_2` (this is likely needed for node >= 10.0)
 
-If you want to reuse tls sessions, you can use the option `forever: true`. 
+If you want to reuse tls sessions, you can use the option `forever: true`.
 
 ``` javascript
 client.setSecurity(new soap.ClientSSLSecurityPFX(
@@ -721,18 +720,6 @@ the `options` object is optional and can contain the following properties:
 * `hasNonce`: adds Nonce element (default: `false`)
 * `mustUnderstand`: adds mustUnderstand=1 attribute to security tag (default: `false`)
 * `actor`: if set, adds Actor attribute with given value to security tag (default: `''`)
-
-### WSSecurityCert
-
-WS-Security X509 Certificate support.
-
-``` javascript
-  var privateKey = fs.readFileSync(privateKeyPath);
-  var publicKey = fs.readFileSync(publicKeyPath);
-  var password = ''; // optional password
-  var wsSecurity = new soap.WSSecurityCert(privateKey, publicKey, password);
-  client.setSecurity(wsSecurity);
-```
 
 ## Handling XML Attributes, Value and XML (wsdlOptions).
 Sometimes it is necessary to override the default behaviour of `node-soap` in order to deal with the special requirements

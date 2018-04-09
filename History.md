@@ -1,3 +1,7 @@
+0.25.0 / 2018-04-09
+===================
+* [AYM] Remove `WSSecurityCert`
+
 0.24.0 / 2018-04-05
 ===================
 * [DOC] Error on custom deserializer example (#1000)
